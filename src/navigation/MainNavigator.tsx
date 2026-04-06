@@ -6,9 +6,11 @@ import Home from '@modules/home';
 import Categories from '@modules/categories';
 import Account from '@modules/account';
 import Cart from '@modules/cart';
+import { AccountIcon, CartIcon, CategoriesIcon, HomeIcon } from './TabIcons';
 
 const Tab = createBottomTabNavigator();
 const MainNavigator = () => {
+  const count = 2;
   return (
     <Tab.Navigator
       screenOptions={{
@@ -22,10 +24,44 @@ const MainNavigator = () => {
         },
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Categories" component={Categories} />
-      <Tab.Screen name="Account" component={Account} />
-      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, focused, size }) => (
+            <HomeIcon focused={focused} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Categories"
+        component={Categories}
+        options={{
+          tabBarIcon: ({ color, focused, size }) => (
+            <CategoriesIcon focused={focused} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={Account}
+        options={{
+          tabBarIcon: ({ color, focused, size }) => (
+            <AccountIcon focused={focused} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: ({ color, focused, size }) => (
+            <CartIcon focused={focused} size={size} color={color} />
+          ),
+          tabBarBadge: count > 0 ? count : undefined,
+          tabBarBadgeStyle: { height: 16, width: 16 },
+        }}
+      />
     </Tab.Navigator>
   );
 };
