@@ -9,6 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { screenHeight } from '@utils/Constants';
 import MenuHeader from './molecules/MenuHeader';
+import SearchBar from './molecules/SearchBar';
 
 const Home = () => {
   const insets = useSafeAreaInsets();
@@ -35,6 +36,7 @@ const Home = () => {
         <Animated.View style={[moveUpStyle]}>
           <View>
             <MenuHeader scrollY={scrollYGlobal} />
+            <SearchBar />
           </View>
         </Animated.View>
         <Animated.View
