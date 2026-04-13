@@ -10,6 +10,7 @@ import Animated, {
 import { screenHeight } from '@utils/Constants';
 import MenuHeader from './molecules/MenuHeader';
 import SearchBar from './molecules/SearchBar';
+import MainList from './templates/MainList';
 
 const Home = () => {
   const insets = useSafeAreaInsets();
@@ -39,9 +40,9 @@ const Home = () => {
             <SearchBar />
           </View>
         </Animated.View>
-        <Animated.View
-          style={[moveUpStyle, { height: screenHeight }]}
-        ></Animated.View>
+        <Animated.View style={[moveUpStyle, { height: screenHeight }]}>
+          <MainList scrollYGlobal={scrollYGlobal} />
+        </Animated.View>
       </View>
     </View>
   );
