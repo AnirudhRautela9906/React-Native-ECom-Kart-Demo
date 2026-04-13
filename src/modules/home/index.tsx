@@ -1,19 +1,48 @@
-import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@store/reduxHook'
-import { getHomeContent } from './api/actions'
+import { View, Text, Platform } from 'react-native';
+import React from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
+import { screenHeight } from '@utils/Constants';
+import MenuHeader from './molecules/MenuHeader';
 
 const Home = () => {
-  const dispatch = useAppDispatch()
-  const {data,error,loading} = useAppSelector(state=> state.home)
-  useEffect(() => {
-    dispatch(getHomeContent(1))
-  },[])
+  const insets = useSafeAreaInsets();
+  const scrollYGlobal = useSharedValue(0);
+  const moveUpStyle = useAnimatedStyle(() => {
+    const translateY = interpolate(
+      scrollYGlobal.value,
+      [0, 100],
+      [0, -100],
+      Extrapolate.CLAMP,
+    );
+    return {
+      transform: [{ translateY }],
+    };
+  });
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={{ flex: 1 }}>
+      <View
+        style={
+          // { height: Platform.OS === 'android' ? insets.top : 0 }
+          {}
+        }
+      >
+        <Animated.View style={[moveUpStyle]}>
+          <View>
+            <MenuHeader scrollY={scrollYGlobal} />
+          </View>
+        </Animated.View>
+        <Animated.View
+          style={[moveUpStyle, { height: screenHeight }]}
+        ></Animated.View>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

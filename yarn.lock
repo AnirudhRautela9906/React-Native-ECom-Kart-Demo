@@ -3128,7 +3128,7 @@ __metadata:
     react: "npm:19.2.3"
     react-native: "npm:0.84.1"
     react-native-gesture-handler: "npm:^2.30.1"
-    react-native-mmkv: "npm:^4.3.0"
+    react-native-mmkv: "npm:^4.3.1"
     react-native-nitro-modules: "npm:^0.35.2"
     react-native-razorpay: "npm:^2.3.1"
     react-native-reanimated: "npm:^4.3.0"
@@ -8382,14 +8382,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-mmkv@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "react-native-mmkv@npm:4.3.0"
+"react-native-mmkv@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "react-native-mmkv@npm:4.3.1"
   peerDependencies:
     react: "*"
     react-native: "*"
     react-native-nitro-modules: "*"
-  checksum: 10/ca189bd7a6ae09f6dee80b83ca3cc4b544a7d44292b52b3fadbbc25b8e5fbff770988ca21915e25017516cb4ef58ba7b9a1b7c1eddbf5a1ac1992665091d8f92
+  checksum: 10/31608a0ee621a633b46d332ea24ae5697144ed305072b7a10722af3275bc9d5ba1db78eab6d6b64bd562c2d1655a7c227f6295b2f9b520a38460e004369523a8
   languageName: node
   linkType: hard
 
